@@ -38,7 +38,7 @@ func (c *Client) applyRequest() (err error) {
 	if err = c.requestURL.EncodeURL(); err != nil {
 		return
 	}
-	c.req, err = http.NewRequest(c.Method, c.requestURL.string(), bytes.NewReader(c.Body))
+	c.Req, err = http.NewRequest(c.Method, c.requestURL.string(), bytes.NewReader(c.Body))
 	return
 }
 
@@ -47,16 +47,16 @@ func (c *Client) applyHTTPHeader() {
 		if c.ContentType == emptyString {
 			c.ContentType = ApplicationJSON
 		}
-		c.req.Header.Set(contentType, string(c.ContentType))
+		c.Req.Header.Set(contentType, string(c.ContentType))
 	}
 	for k, v := range c.Header {
-		c.req.Header.Add(k, v)
+		c.Req.Header.Add(k, v)
 	}
 }
 
 func (c *Client) applyBasicAuth() {
 	if c.BasicAuth.Username != emptyString && c.BasicAuth.Password != emptyString {
-		c.req.SetBasicAuth(c.BasicAuth.Username, c.BasicAuth.Password)
+		c.Req.SetBasicAuth(c.BasicAuth.Username, c.BasicAuth.Password)
 	}
 }
 

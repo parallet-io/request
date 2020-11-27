@@ -54,7 +54,7 @@ func TestSugaredResp_StatusCode(t *testing.T) {
 				Timeout:     tt.fields.Timeout,
 				ContentType: tt.fields.ContentType,
 				client:      tt.fields.client,
-				req:         tt.fields.req,
+				Req:         tt.fields.req,
 			}
 			resp, _ := c.Do()
 			if gotCode := resp.StatusCode(); gotCode != tt.wantCode {

@@ -234,7 +234,7 @@ func TestClient_buildRequest(t *testing.T) {
 				Timeout:     tt.fields.Timeout,
 				ContentType: tt.fields.ContentType,
 				client:      tt.fields.client,
-				req:         tt.fields.req,
+				Req:         tt.fields.req,
 			}
 			if err := c.buildRequest(); (err != nil) != tt.wantErr {
 				t.Errorf("buildRequest() error = %v, wantErr %v", err, tt.wantErr)
@@ -302,7 +302,7 @@ func TestClient_Resp(t *testing.T) {
 				Timeout:     tt.fields.Timeout,
 				ContentType: tt.fields.ContentType,
 				client:      tt.fields.client,
-				req:         tt.fields.req,
+				Req:         tt.fields.req,
 			}
 			_, err := c.Resp()
 			if (err != nil) != tt.wantErr {
@@ -350,7 +350,7 @@ func TestClient_Close(t *testing.T) {
 				Timeout:     tt.fields.Timeout,
 				ContentType: tt.fields.ContentType,
 				client:      tt.fields.client,
-				req:         tt.fields.req,
+				Req:         tt.fields.req,
 			}
 			resp, _ := c.Do()
 			resp.Close()

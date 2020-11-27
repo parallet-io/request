@@ -58,7 +58,7 @@ func TestClient_applyProxy(t *testing.T) {
 				Cookies:     tt.fields.Cookies,
 				client:      tt.fields.client,
 				requestURL:  tt.fields.requestURL,
-				req:         tt.fields.req,
+				Req:         tt.fields.req,
 			}
 			c.applyClient()
 			c.buildRequest()
@@ -120,7 +120,7 @@ func TestClient_applyTLSConfig(t *testing.T) {
 				TLSConfig:   tt.fields.TLSConfig,
 				client:      tt.fields.client,
 				requestURL:  tt.fields.requestURL,
-				req:         tt.fields.req,
+				Req:         tt.fields.req,
 				Transport:   tt.fields.Transport,
 			}
 			c.buildRequest()

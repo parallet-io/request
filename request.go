@@ -14,7 +14,7 @@ func (c *Client) Do() (resp SugaredResp, err error) {
 	}
 
 	// send request and close on func call end
-	if resp.resp, err = c.client.Do(c.req); err != nil {
+	if resp.resp, err = c.client.Do(c.Req); err != nil {
 		return
 	}
 
@@ -29,5 +29,5 @@ func (c *Client) Resp() (resp *http.Response, err error) {
 	if err = c.buildRequest(); err != nil {
 		return
 	}
-	return c.client.Do(c.req)
+	return c.client.Do(c.Req)
 }
