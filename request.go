@@ -24,6 +24,14 @@ func (c *Client) Do() (resp SugaredResp, err error) {
 	return
 }
 
+// Get raw http request
+func (c *Client) GetReq() (req *http.Request, err error) {
+	if err = c.buildRequest(); err != nil {
+		return
+	}
+	return c.Req, nil
+}
+
 // Resp do request and get original http response struct
 func (c *Client) Resp() (resp *http.Response, err error) {
 	if err = c.buildRequest(); err != nil {
